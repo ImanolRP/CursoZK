@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language-addon>
+    <addon-name>CursoZK</addon-name>
+    <version>
+        <version-uid>4.0.0</version-uid>
+        <zk-version>8.5.0</zk-version>
+    </version>
+    <language-name>xul/html</language-name>
+    <depends>zul, zkbind</depends>
+    <stylesheet href="~./css/style.css" type="text/css"/>
+</language-addon>
