@@ -1,0 +1,47 @@
+<window apply="org.zkoss.bind.BindComposer"
+        viewModel="@id('vm') @init('org.example.application.vm.carlist.CarListVM')"
+        validationMessages="@id('vmsgs')" hflex="1" height="500px">
+    <hbox align="center">
+        Keyword:
+        <textbox value="@bind(vm.filtro)"/>
+        <button label="Search" iconSclass="z-icon-search" onClick="@command('search')"/>
+    </hbox>
+    <listbox height="160px" model="@bind(vm.carList)" emptyMessage="No car found in the result"
+             selectedItem="@bind(vm.selectedCar)" style="margin-top:10px">
+        <listhead>
+            <listheader label="Model"/>
+            <listheader label="Make"/>
+            <listheader label="Price" width="20%"/>
+        </listhead>
+        <template name="model" var="coche">
+            <listitem>
+                <listcell label="@bind(coche.model)"></listcell>
+                <listcell label="@bind(coche.make)"></listcell>
+                <listcell>$
+                    <label value="@bind(coche.price)"/>
+                </listcell>
+            </listitem>
+        </template>
+    </listbox>
+    <hbox style="margin-top:20px" visible="@bind(not empty vm.selectedCar)">
+        <image src="@bind(vm.selectedCar.preview)" style="padding:10px"/>
+        <vbox>
+            <hlayout>
+                Model :
+                <label value="@bind(vm.selectedCar.model)" style="font-weight:bold"/>
+            </hlayout>
+            <hlayout>
+                Make :
+                <label value="@bind(vm.selectedCar.make)" style="font-weight:bold"/>
+            </hlayout>
+            <hlayout>
+                Price :
+                <span>$
+                    <label value="@bind(vm.selectedCar.price)" style="font-weight:bold"/>
+                </span>
+            </hlayout>
+            <label value="@bind(vm.selectedCar.description)"/>
+        </vbox>
+    </hbox>
+</window>
+
