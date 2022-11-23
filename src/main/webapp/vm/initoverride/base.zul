@@ -1,0 +1,5 @@
+<window apply="org.zkoss.bind.BindComposer"
+        viewModel="@id('vm') @init('org.example.application.vm.initoverride.BaseVM')"
+        validationMessages="@id('vmsgs')">
+    <label value="Revisar los logs para comprobar que se ha impreso 2 veces BaseVM.init()"/>
+</window>
