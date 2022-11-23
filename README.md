@@ -1,7 +1,5 @@
 # CursoZK - Proyecto para pruebas y formación
 
----
-
 Aplicación web de ZK lista para desplegar mediante war.
 
 ## Pre-requisitos - Instalación de la aplicacion
