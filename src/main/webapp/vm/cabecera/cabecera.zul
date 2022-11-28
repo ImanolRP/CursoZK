@@ -1,0 +1,10 @@
+<?import org.example.application.comun.PantallasEnum?>
+<window apply="org.zkoss.bind.BindComposer"
+        viewModel="@id('vm') @init('org.example.application.vm.cabecera.CabeceraVM')"
+        validationMessages="@id('vmsgs')" hflex="1" vflex="1">
+    <hlayout>
+        <button label="Opcion1" onClick="@global-command('navegarA', path=PantallasEnum.CARLIST)"/>
+        <button label="Opcion2" onClick="@global-command('navegarA', path=PantallasEnum.EXTENDS)"/>
+        <button label="Opcion3" onClick="@global-command('navegarA', path=PantallasEnum.BASE)"/>
+    </hlayout>
+</window>
