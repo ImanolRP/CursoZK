@@ -9,28 +9,38 @@
         </north>
         <west hflex="1" vflex="1"
               style="background-color: green">
-            <tree width="250px" height="100%">
-                <treechildren>
-                    <treeitem>
-                        <treerow>
-                            <treecell label="Ejemplo carlist"
-                                      onClick="@command('navegarA', path=PantallasEnum.CARLIST)"/>
-                        </treerow>
-                    </treeitem>
-                    <treeitem>
-                        <treerow>
-                            <treecell label="Ejemplo extends"
-                                      onClick="@command('navegarA', path=PantallasEnum.EXTENDS)"/>
-                        </treerow>
-                    </treeitem>
-                    <treeitem>
-                        <treerow>
-                            <treecell label="Ejemplo base"
-                                      onClick="@command('navegarA', path=PantallasEnum.BASE)"/>
-                        </treerow>
-                    </treeitem>
-                </treechildren>
-            </tree>
+            <vlayout>
+                <tree width="250px" height="100%">
+                    <treechildren>
+                        <treeitem>
+                            <treerow>
+                                <treecell label="Ejemplo carlist"
+                                          onClick="@command('navegarA', path=PantallasEnum.CARLIST)"/>
+                            </treerow>
+                        </treeitem>
+                        <treeitem>
+                            <treerow>
+                                <treecell label="Ejemplo extends"
+                                          onClick="@command('navegarA', path=PantallasEnum.EXTENDS)"/>
+                            </treerow>
+                        </treeitem>
+                        <treeitem>
+                            <treerow>
+                                <treecell label="Ejemplo base"
+                                          onClick="@command('navegarA', path=PantallasEnum.BASE)"/>
+                            </treerow>
+                        </treeitem>
+                    </treechildren>
+                </tree>
+                <menubar orient="vertical" width="250px" height="100%">
+                    <menuitem label="Ejemplo carlist"
+                              onClick="@command('navegarA', path=PantallasEnum.CARLIST)"/>
+                    <menuitem label="Ejemplo extends"
+                              onClick="@command('navegarA', path=PantallasEnum.EXTENDS)"/>
+                    <menuitem label="Ejemplo base"
+                              onClick="@command('navegarA', path=PantallasEnum.BASE)"/>
+                </menubar>
+            </vlayout>
         </west>
         <center hflex="1" vflex="1"
                 style="background-color: yellow">
