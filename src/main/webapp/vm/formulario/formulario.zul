@@ -1,5 +1,19 @@
 <window apply="org.zkoss.bind.BindComposer"
         viewModel="@id('vm') @init('org.example.application.vm.formulario.FormularioVM')"
         validationMessages="@id('vmsgs')" hflex="1" vflex="1">
-    <label value="formulario"/>
+    <vlayout hflex="1"
+             form="@id('form')
+             @load(vm.ejemploForm)
+             @save(vm.ejemploForm, before='guardar')
+             @validator('org.example.application.vm.formulario.ValidadorForm')">
+
+        <textbox value="@bind(form.varString)"/>
+        <textbox type="password"
+                 value="@bind(form.varPassword)"/>
+        <intbox value="@bind(form.varInteger)"/>
+        <decimalbox value="@bind(form.varDouble)"/>
+        <datebox value="@bind(form.varDate)"/>
+
+        <button label="submit" onClick="@command('guardar')"/>
+    </vlayout>
 </window>
