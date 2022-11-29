@@ -25,6 +25,8 @@ public class CarListVM {
   private CarService service = new CarServiceImpl();
   private String filtro = "";
 
+  private Car nuevoCoche = new Car();
+
   @Init
   public void initCarListVM() {
     LOG.info("IndexVM.initIndexVM()");
@@ -37,4 +39,10 @@ public class CarListVM {
     carList = service.search(filtro);
   }
 
+  @Command("altaCoche")
+  @NotifyChange({"carList", "nuevoCoche"})
+  public void altaCoche() {
+    carList.add(nuevoCoche);
+    nuevoCoche = new Car();
+  }
 }
