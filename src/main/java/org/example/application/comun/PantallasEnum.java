@@ -7,7 +7,8 @@ public enum PantallasEnum {
 
   CARLIST("/vm/carlist/carlist.zul"), //
   EXTENDS("/vm/initoverride/base.zul"), //
-  BASE("/vm/myviewmodel/myviewmodel.zul");
+  BASE("/vm/myviewmodel/myviewmodel.zul"), //
+  FORMULARIO("/vm/formulario/formulario.zul");//
 
   String path;
 

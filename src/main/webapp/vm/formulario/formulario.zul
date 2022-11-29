@@ -1,0 +1,5 @@
+<window apply="org.zkoss.bind.BindComposer"
+        viewModel="@id('vm') @init('org.example.application.vm.formulario.FormularioVM')"
+        validationMessages="@id('vmsgs')" hflex="1" vflex="1">
+    <label value="formulario"/>
+</window>
