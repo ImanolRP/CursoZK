@@ -12,6 +12,7 @@
             <include hflex="1" src="menu-lateral.zul"/>
         </west>
         <center hflex="1" vflex="1"
+                autoscroll="true"
                 style="background-color: yellow">
             <include hflex="1" src="@load(vm.pathCentro)"/>
         </center>
