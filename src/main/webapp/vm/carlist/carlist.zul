@@ -32,6 +32,7 @@
                 <button label="Guardar" onClick="@command('altaCoche')"/>
             </hlayout>
         </vlayout>
+        <button label="Formulario" onClick="@command('abrirFormulario')"/>
         <hbox align="center">
             Keyword:
             <textbox value="@bind(vm.filtro)"/>

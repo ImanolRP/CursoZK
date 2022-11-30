@@ -1,0 +1,7 @@
+<window id="formularioCoche"
+        viewModel="@id('vm') @init('org.example.application.vm.carlist.FormularioCocheVM')"
+        title="formularioCoche" closable="false" mode="modal">
+    <label value="popup"/>
+    <button label="search" onClick="@command('search')"/>
+    <button label="cerrar" onClick="formularioCoche.detach()"/>
+</window>

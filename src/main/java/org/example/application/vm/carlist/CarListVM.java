@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;
 import org.zkoss.bind.annotation.NotifyChange;
+import org.zkoss.zk.ui.Executions;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -45,4 +46,10 @@ public class CarListVM {
     carList.add(nuevoCoche);
     nuevoCoche = new Car();
   }
+
+  @Command("abrirFormulario")
+  public void abrirFormulario() {
+    Executions.createComponents("/vm/carlist/formulario-coche.zul", null, null);
+  }
+
 }
