@@ -10,4 +10,6 @@ public interface CarService {
 
   public List<Car> search(String filtro);
 
+  public void save(Car coche);
+
 }

@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.example.dto.Car;
 
-public class CarServiceImpl implements CarService {
+public final class CarServiceImpl implements CarService {
 
   // data model
   private List<Car> carList = new LinkedList<Car>();
@@ -71,6 +71,11 @@ public class CarServiceImpl implements CarService {
       }
     }
     return result;
+  }
+
+  @Override
+  public void save(Car coche) {
+    carList.add(coche);
   }
 
 }

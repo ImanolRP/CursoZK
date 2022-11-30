@@ -2,36 +2,6 @@
         viewModel="@id('vm') @init('org.example.application.vm.carlist.CarListVM')"
         validationMessages="@id('vmsgs')" hflex="1" height="500px">
     <vlayout hflex="1">
-        <vlayout hflex="1"
-                 form="@id('form')
-                 @load(vm.nuevoCoche)
-                 @save(vm.nuevoCoche, before='altaCoche')
-                 @validator('org.example.application.vm.carlist.CarValidator')">
-            <hlayout hflex="1">
-                <label value="Modelo"/>
-                <textbox value="@bind(form.model)"/>
-                <label value="@load(vmsgs['model'])"/>
-            </hlayout>
-            <hlayout hflex="1">
-                <label value="Fabricante"/>
-                <textbox value="@bind(form.make)"/>
-            </hlayout>
-            <hlayout hflex="1">
-                <label value="Imagen"/>
-                <textbox value="@bind(form.preview)"/>
-            </hlayout>
-            <hlayout hflex="1">
-                <label value="Descripcion"/>
-                <textbox value="@bind(form.description)"/>
-            </hlayout>
-            <hlayout hflex="1">
-                <label value="Precio"/>
-                <textbox value="@bind(form.price)"/>
-            </hlayout>
-            <hlayout valign="center">
-                <button label="Guardar" onClick="@command('altaCoche')"/>
-            </hlayout>
-        </vlayout>
         <button label="Formulario" onClick="@command('abrirFormulario')"/>
         <hbox align="center">
             Keyword:

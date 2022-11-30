@@ -11,40 +11,34 @@ import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;
 import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.zk.ui.Executions;
+import org.zkoss.zk.ui.select.annotation.VariableResolver;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
+@VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
 public class CarListVM {
 
   private static final Logger LOG = LoggerFactory.getLogger(CarListVM.class);
 
   private List<Car> carList;
   private Car selectedCar;
-  private CarService service = new CarServiceImpl();
   private String filtro = "";
 
-  private Car nuevoCoche = new Car();
+  private CarService carServiceImpl = new CarServiceImpl();
 
   @Init
   public void initCarListVM() {
     LOG.info("IndexVM.initIndexVM()");
-    carList = service.findAll();
+    carList = carServiceImpl.findAll();
   }
 
   @Command
   @NotifyChange({"carList"})
   public void search() {
-    carList = service.search(filtro);
-  }
-
-  @Command("altaCoche")
-  @NotifyChange({"carList", "nuevoCoche"})
-  public void altaCoche() {
-    carList.add(nuevoCoche);
-    nuevoCoche = new Car();
+    carList = carServiceImpl.search(filtro);
   }
 
   @Command("abrirFormulario")
