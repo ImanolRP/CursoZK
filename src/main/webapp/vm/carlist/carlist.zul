@@ -7,6 +7,12 @@
             Keyword:
             <textbox value="@bind(vm.filtro)"/>
             <button label="Search" iconSclass="z-icon-search" onClick="@command('search')"/>
+            <combobox model="@load(vm.carCombobox)"
+                      selectedItem="@bind(vm.carComboboxSelected)">
+                <template name="model" var="coche">
+                    <comboitem label="@load(coche.model)"/>
+                </template>
+            </combobox>
         </hbox>
         <listbox height="160px" model="@bind(vm.carList)" emptyMessage="No car found in the result"
                  selectedItem="@bind(vm.selectedCar)" style="margin-top:10px">

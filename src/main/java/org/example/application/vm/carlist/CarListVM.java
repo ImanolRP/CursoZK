@@ -30,6 +30,9 @@ public class CarListVM {
   private Car selectedCar;
   private String filtro = "";
 
+  private List<Car> carCombobox;
+  private Car carComboboxSelected;
+
   @WireVariable
   private CarService carServiceImpl;
 
@@ -37,6 +40,7 @@ public class CarListVM {
   public void initCarListVM() {
     LOG.info("IndexVM.initIndexVM()");
     carList = carServiceImpl.findAll();
+    carCombobox = carServiceImpl.findAll();
   }
 
   @Command
