@@ -12,4 +12,6 @@ public interface CarService {
 
   public void save(Car coche);
 
+  Car findById(Integer idCoche);
+
 }

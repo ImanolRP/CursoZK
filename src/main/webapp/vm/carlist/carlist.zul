@@ -16,7 +16,7 @@
                 <listheader label="Price" width="20%"/>
             </listhead>
             <template name="model" var="coche">
-                <listitem>
+                <listitem onDoubleClick="@command('editarCoche')">
                     <listcell label="@bind(coche.model)"></listcell>
                     <listcell label="@bind(coche.make)"></listcell>
                     <listcell>$

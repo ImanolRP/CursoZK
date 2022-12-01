@@ -9,6 +9,7 @@ import org.example.service.carlist.CarService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.zkoss.bind.annotation.Command;
+import org.zkoss.bind.annotation.GlobalCommand;
 import org.zkoss.bind.annotation.Init;
 import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.zk.ui.Executions;
@@ -39,6 +40,7 @@ public class CarListVM {
   }
 
   @Command
+  @GlobalCommand("searchCarList")
   @NotifyChange({"carList"})
   public void search() {
     carList = carServiceImpl.search(filtro);
@@ -46,8 +48,14 @@ public class CarListVM {
 
   @Command("abrirFormulario")
   public void abrirFormulario() {
+    Executions.createComponents("/vm/carlist/formulario-coche.zul", null,
+        null);
+  }
+
+  @Command("editarCoche")
+  public void editarCoche() {
     Map<String, Object> argumentos = new HashMap<>();
-    argumentos.put("ejemplo", "ejemplo1");
+    argumentos.put("idCoche", selectedCar.getId());
     Executions.createComponents("/vm/carlist/formulario-coche.zul", null,
         argumentos);
   }

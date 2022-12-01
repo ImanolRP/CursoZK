@@ -2,6 +2,7 @@ package org.example.service.carlist;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 
 import org.example.dto.Car;
 import org.springframework.stereotype.Service;
@@ -77,7 +78,20 @@ public class CarServiceImpl implements CarService {
 
   @Override
   public void save(Car coche) {
+    if (Objects.isNull(coche.getId())) {
+      coche.setId(id++);
+    }
     carList.add(coche);
+  }
+
+  @Override
+  public Car findById(Integer idCoche) {
+    for (Car coche : carList) {
+      if (coche.getId().equals(idCoche)) {
+        return coche;
+      }
+    }
+    return null;
   }
 
 }
