@@ -4,8 +4,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.example.dto.Car;
+import org.springframework.stereotype.Service;
 
-public final class CarServiceImpl implements CarService {
+@Service
+public class CarServiceImpl implements CarService {
 
   // data model
   private List<Car> carList = new LinkedList<Car>();
