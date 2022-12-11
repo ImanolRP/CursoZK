@@ -1,20 +1,5 @@
-<?import org.example.application.comun.PantallasEnum?>
 <window apply="org.zkoss.bind.BindComposer"
         viewModel="@id('vm') @init('org.example.application.vm.IndexVM')"
         validationMessages="@id('vmsgs')" width="100%" height="100%">
-    <borderlayout>
-        <north hflex="1" vflex="1"
-               style="background-color: red">
-            <include src="/vm/cabecera/cabecera.zul"/>
-        </north>
-        <west hflex="1" vflex="1"
-              style="background-color: green">
-            <include hflex="1" src="menu-lateral.zul"/>
-        </west>
-        <center hflex="1" vflex="1"
-                autoscroll="true"
-                style="background-color: yellow">
-            <include hflex="1" src="@load(vm.pathCentro)"/>
-        </center>
-    </borderlayout>
+        <label value="Index"/>
 </window>
