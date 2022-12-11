@@ -34,12 +34,14 @@ public class Pokemon {
   @JsonProperty("sprites")
   private Sprites sprites;
 
+  private Region region;
+
   public String toString(List<Type> allTypes) {
     Long type1 = getType1(allTypes);
     Long type2 = getType2(allTypes);
-    return "INSERT INTO POKEMON (ID_POKEMON, NOMBRE, ALTURA, PESO, TIPO_1, TIPO_2) " //
+    return "INSERT INTO POKEMON (ID_POKEMON, NOMBRE, ALTURA, PESO, TIPO_1, TIPO_2, ID_REGION) " //
         + "VALUES (" + id + ", '" + name + "', " + height + ", " + weight + ", "
-        + type1 + ", " + type2 + ");";
+        + type1 + ", " + type2 + ", " + region.getId() + ");";
   }
 
   private Long getType2(List<Type> allTypes) {
