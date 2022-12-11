@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import org.example.application.vm.initoverride.BaseVM;
 import org.example.clientapi.pokeapi.objects.Pokemon;
 import org.example.clientapi.pokeapi.objects.PokemonPage;
 import org.example.clientapi.pokeapi.objects.Region;
@@ -17,7 +16,7 @@ import org.slf4j.LoggerFactory;
 
 public class DDLGenerator {
 
-  private static final Logger LOG = LoggerFactory.getLogger(BaseVM.class);
+  private static final Logger LOG = LoggerFactory.getLogger(DDLGenerator.class);
 
   public static void main(String[] args) throws IOException {
     PokeApiClient api = new PokeApiClient();
