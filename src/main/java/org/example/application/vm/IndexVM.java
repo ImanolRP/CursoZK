@@ -1,6 +1,9 @@
 package org.example.application.vm;
 
 import org.example.service.PokemonService;
+import org.example.service.RegionService;
+import org.example.service.SpriteService;
+import org.example.service.TypeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.zkoss.bind.annotation.Init;
@@ -18,6 +21,15 @@ public class IndexVM {
 
   @WireVariable
   PokemonService pokemonServiceImpl;
+
+  @WireVariable
+  RegionService regionServiceImpl;
+
+  @WireVariable
+  SpriteService spriteServiceImpl;
+
+  @WireVariable
+  TypeService typeServiceImpl;
 
   @Init
   public void initIndexVM() {
