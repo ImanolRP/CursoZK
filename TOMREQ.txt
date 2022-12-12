@@ -1,0 +1,55 @@
+ITERACION 1
+1- Crear un zul diferente de index.zul.
+2- En el se mostrará una tabla como la de carlist.zul pero en vez de haber scroll a la derecha, mostraremos los resultados con paginacion. (PokemonService.findPageByFilters)
+	* numPagina -> pagina a mostrar, empieza a contar desde 0
+	* numRegistrosPagina -> numero de registros que devolverá en cada consulta por defecto serán 10
+	* filters -> (Opcional) para esta iteración informarse como null
+3- La tabla mostrará los campos:
+	* Ndex -> PokemonDto.id
+	* Nombre -> PokemonDto.nombre
+	* Altura -> PokemonDto.altura
+	* Peso -> PokemonDto.peso
+	* Tipo -> PokemonDto.tipo1.nombre
+	* Tipo -> PokemonDto.tipo2.nombre
+	* Region -> PokemonDto.region.nombre
+4- En la parte superior derecha de la tabla tiene que aparecer un desplegable con 5-10-25-50 estando el 10 seleccionado por defecto para poder cambiar el numero de registros por pagina.
+
+ITERACION 2
+1- Al listado anterior le añadiremos un recuadro en la parte superior en el que se verán varios inputs con los que podremos filtrar el listado junto a un boton de "buscar" y otro de "limpiar filtros"
+	* Nombre Pokemon -> Textbox de entrada libre
+	* Altura Pokemon -> Seran dos decimalbox diferenciados con "mínima" y "máxima"
+	* Peso Pokemon -> Seran dos decimalbox diferenciados con "mínimo" y "máximo"
+	* Tipo Pokemon -> Seran dos desplegables en los que tendremos el listado de tipo de pokemon TypeService.findAll
+	* Region Pokemon -> Sera un desplegable en el que tendremos el listado de regiones RegionService.findAll
+2- Los filtros se informan creando un HasMap<String, Object> en el que se añaden los diferentes filtros, las claves son:
+	* nombrePokemon -> tipo String, sera para buscar el nombre del pokemon parcialmente
+	* alturaMinPokemon -> tipo Double, sera la altura minima para buscar por >=
+	* alturaMaxPokemon -> tipo Double, sera la altura máxima para buscar por <=
+	* pesoMinPokemon -> tipo Double, sera el peso minima para buscar por >=
+	* pesoMaxPokemon -> tipo Double, sera el peso máxima para buscar por <=
+	* tipo1 -> tipo Long, es el Id del tipo lo comprueba tanto en la columna tipo1 como en la tipo2 de la tabla. El listado de tipos puede obtenerse de TypeService.findAll
+	* tipo2 -> funciona igual que tipo1
+	* region -> tipo Long, es el Id de la region original del pokemon. El listado de regiones puede obtenerse de RegionService.findAll
+3- El funcionamiento cada vez que se pulse el boton "buscar" tiene que ser, aplicar los filtros informados y mostrar la pagina 0 del listado que cumpla los filtros
+4- El funcionamiento cada vez que se pulse el boton "limpiar filtros" tiene que ser, dejar vacios los filtros de manera visual en la aplicación y mostrar la pagina 0 del listado que cumpla los filtros
+
+ITERACION 3
+1- Crear en index.zul un menu general en el que a la izquierda tengas una botonera vertical y a la derecha una sección donde se cargen las opciones pulsadas en la botonera.
+2- La botonera estará compuesta por todas las regiones cargadas en la base de datos + una extra llamada "Nacional"
+	* Nacional -> Cargará lo generado en las iteraciones 1 y 2 en la parte derecha, es la pagina por defecto cuando se accede a index.zul por primera vez
+	* Kanto -> Todos los accesos por región funcionan igual (paso 3)
+	* Johto -> Todos los accesos por región funcionan igual (paso 3)
+	* Hoenn -> Todos los accesos por región funcionan igual (paso 3)
+	* Sinnoh -> Todos los accesos por región funcionan igual (paso 3)
+	* Teselia -> Todos los accesos por región funcionan igual (paso 3)
+	* Kalos -> Todos los accesos por región funcionan igual (paso 3)
+	* Alola -> Todos los accesos por región funcionan igual (paso 3)
+	* Galar -> Todos los accesos por región funcionan igual (paso 3)
+3- Se cargará lo generado en las iteraciones 1 y 2 con la peculiaridad de que el filtro "Region Pokemon" no será visible y siempre estará fijado en la región que hayamos seleccionado en el menu.
+4- Tampoco será visible la columna "Region" en el listado ya que todos pertenecen a la misma región y sería redundante, en vez de eso aparecerá sobre la caja de filtros el nombre de la región seleccionada.
+5- Cuando se pulse el botón "limpiar filtros" no se debe limpiar el filtro "Region Pokemon"
+
+ITERACION 4
+1- Al hacer dobleclick en un registro de la tabla se abrirá un popup con los detalles del pokemon en modo lecutra (los mismos de la tabla) con el añadido de que a continuación se mostrarán el sprite del pokemon PokemonDto.sprite.frontalDefault
+2- Entre la información del pokemon habrá 1 checkbox con el texto "Shiny" que al pulsarlo el sprite cambiará a PokemonDto.sprite.frontalShiny
+3- En caso de que al consultar el detalle el pokemon tenga sprites diferenciados para los sexos, aparecerá otro checkbox con el texto "Fem". En caso de pulsarse cargará los sprites PokemonDto.sprite.frontalFemale o PokemonDto.sprite.frontalShinyFemale dependiendo de si el checkbox "Shiny" esta activo a la vez o no.
