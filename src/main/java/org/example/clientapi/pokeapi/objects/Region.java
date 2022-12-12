@@ -20,7 +20,7 @@ public class Region {
 
   @Override
   public String toString() {
-    return "INSERT INTO POKEMON (ID_REGION, NOMBRE) " //
+    return "INSERT INTO REGION (ID_REGION, NOMBRE) " //
         + "VALUES (" + id + ", '" + name + "');";
   }
 }
