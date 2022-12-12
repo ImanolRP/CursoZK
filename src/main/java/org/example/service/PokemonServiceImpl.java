@@ -1,11 +1,13 @@
 package org.example.service;
 
-import java.util.List;
+import java.util.HashMap;
 
 import org.example.dto.PokemonDto;
 import org.example.mapper.PokemonMapper;
 import org.example.repository.PokemonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -22,8 +24,10 @@ public class PokemonServiceImpl implements PokemonService {
   }
 
   @Override
-  public List<PokemonDto> findAll() {
-    return pokemonMapperImpl.toDtoList(pokemonRepository.findAll());
+  public Page<PokemonDto> findPageByFilters(Integer numPagina,
+      Integer numRegistrosPagina, HashMap<String, Object> filters) {
+    return pokemonMapperImpl.toDtoPage(pokemonRepository.findPageByFilters(
+        new PageRequest(numPagina, numRegistrosPagina), filters));
   }
 
 }

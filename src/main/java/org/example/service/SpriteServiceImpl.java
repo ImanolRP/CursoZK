@@ -28,7 +28,7 @@ public class SpriteServiceImpl implements SpriteService {
 
   @Override
   public SpriteDto findById(Long id) {
-    return spriteMapperImpl.toDto(spriteRepository.findOne(id));
+    return spriteMapperImpl.toDto(spriteRepository.getOne(id));
   }
 
 }

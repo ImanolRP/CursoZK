@@ -28,7 +28,7 @@ public class TypeServiceImpl implements TypeService {
 
   @Override
   public TypeDto findById(Long id) {
-    return typeMapperImpl.toDto(typeRepository.findOne(id));
+    return typeMapperImpl.toDto(typeRepository.getOne(id));
   }
 
 }

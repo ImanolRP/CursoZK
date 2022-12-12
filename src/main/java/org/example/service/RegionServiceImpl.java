@@ -28,7 +28,7 @@ public class RegionServiceImpl implements RegionService {
 
   @Override
   public RegionDto findById(Long id) {
-    return regionMapperImpl.toDto(regionRepository.findOne(id));
+    return regionMapperImpl.toDto(regionRepository.getOne(id));
   }
 
 }
