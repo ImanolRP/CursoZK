@@ -66,28 +66,28 @@ public class DDLGenerator {
   }
 
   private static Region getRegionById(Long id) {
-    if (1 <= id || id >= 151) {
+    if (id >= 1 && id <= 151) {
       // 1 Kanto 1-151
       return new Region(1L, "Kanto");
-    } else if (152 <= id || id >= 251) {
+    } else if (id >= 152 && id <= 251) {
       // 2 Johto 152-251
       return new Region(2L, "Johto");
-    } else if (252 <= id || id >= 386) {
+    } else if (id >= 252 && id <= 386) {
       // 3 Hoenn 252-386
       return new Region(3L, "Hoenn");
-    } else if (387 <= id || id >= 493) {
+    } else if (id >= 387 && id <= 493) {
       // 4 Sinnoh 387-493
       return new Region(4L, "Sinnoh");
-    } else if (494 <= id || id >= 649) {
+    } else if (id >= 494 && id <= 649) {
       // 5 Teselia 494-649
       return new Region(5L, "Teselia");
-    } else if (650 <= id || id >= 721) {
+    } else if (id >= 650 && id <= 721) {
       // 6 Kalos 650-721
       return new Region(6L, "Kalos");
-    } else if (722 <= id || id >= 809) {
+    } else if (id >= 722 && id <= 809) {
       // 7 Alola 722-809
       return new Region(7L, "Alola");
-    } else if (810 <= id || id >= 902) {
+    } else if (id >= 810 && id <= 902) {
       // 8 Galar 810-902
       return new Region(8L, "Galar");
     }
