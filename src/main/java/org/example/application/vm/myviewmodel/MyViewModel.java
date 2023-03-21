@@ -14,6 +14,7 @@ public class MyViewModel {
 
   @Init
   public void initMyViewModel() {
+    // commit de prueba
     LOG.info("MyViewModel.initMyViewModel()");
     count = 100;
   }
