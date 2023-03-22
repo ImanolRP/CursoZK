@@ -1,0 +1,5 @@
+<window apply="org.zkoss.bind.BindComposer"
+        viewModel="@id('vm') @init('org.example.application.vm.carlist.CarWildCardVM')">
+    <label value="@load(vm.model)"/>
+    <label value="@load(vm.description)"/>
+</window>
