@@ -5,6 +5,8 @@
         <hlayout>count:
             <label value="@load(vm.count)"/>
         </hlayout>
-        <button label="add" onClick="@command('cmd')"/>
+        <button label="sumaUno" onClick="@command('sumaUno')"/>
+        <button label="sumaUnisimo" onClick="@command('sumaUnisimo')"/>
+        <button label="masUno" onClick="@command('masUno')"/>
     </window>
 </zk>
