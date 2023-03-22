@@ -2,74 +2,68 @@ package org.example.dto;
 
 public class CarDTO {
 
-	private String carId;
-	private String model;
-	private String picture;
-	private String make;
-	private String country;
-	private String type;
-	private double cost;
+  private Integer id;
+  private String model;
+  private String make;
+  private String description;
+  private String preview;
+  private Integer price;
 
-	public CarDTO() {
-	}
+  public CarDTO(Integer id, String model, String make, String description,
+      String preview, Integer price) {
+    this.id = id;
+    this.model = model;
+    this.make = make;
+    this.description = description;
+    this.preview = preview;
+    this.price = price;
+  }
 
-	public String getCarId() {
-		return carId;
-	}
+  public Integer getId() {
+    return id;
+  }
 
-	public void setCarId(String carId) {
-		this.carId = carId;
-	}
+  public void setId(Integer id) {
+    this.id = id;
+  }
 
-	public String getModel() {
-		return model;
-	}
+  public String getModel() {
+    return model;
+  }
 
-	public void setModel(String model) {
-		this.model = model;
-	}
+  public void setModel(String model) {
+    this.model = model;
+  }
 
-	public String getPicture() {
-		return picture;
-	}
+  public String getMake() {
+    return make;
+  }
 
-	public void setPicture(String picture) {
-		this.picture = picture;
-	}
+  public void setMake(String make) {
+    this.make = make;
+  }
 
-	public String getMake() {
-		return make;
-	}
+  public String getPreview() {
+    return preview;
+  }
 
-	public void setMake(String make) {
-		this.make = make;
-	}
+  public void setPreview(String preview) {
+    this.preview = preview;
+  }
 
-	public String getCountry() {
-		return country;
-	}
+  public String getDescription() {
+    return description;
+  }
 
-	public void setCountry(String country) {
-		this.country = country;
-	}
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
-	public String getType() {
-		return type;
-	}
+  public Integer getPrice() {
+    return price;
+  }
 
-	public void setType(String type) {
-		this.type = type;
-	}
-
-	public double getCost() {
-		return cost;
-	}
-
-	public void setCost(double cost) {
-		this.cost = cost;
-	}
-
-	public String toString() {
-		return model;
-	}
+  public void setPrice(Integer price) {
+    this.price = price;
+  }
 }

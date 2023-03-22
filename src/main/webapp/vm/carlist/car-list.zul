@@ -1,31 +1,29 @@
 <window apply="org.zkoss.bind.BindComposer"
         viewModel="@id('vm') @init('org.example.application.vm.carlist.CarListVM')"
         validationMessages="@id('vmsgs')">
-    <hlayout>
-        <vlayout>
-            <label value="@load(vm.prueba)"/>
-            <include src="/index.zul"/>
-        </vlayout>
-    </hlayout>
+    <vlayout>
+        <label value="@load(vm.prueba)"/>
+        <include src="/index.zul"/>
 
-    <listbox model="@load(vm.listadoCoches)" checkmark="true" mold="paging" pageSize="9">
-        <listhead>
-            <listheader />
-            <listheader label="model" align="center" sort="auto(model)" />
-            <listheader label="make" align="center" sort="auto(make)" />
-            <listheader label="country" align="center" sort="auto(country)" />
-            <listheader label="type" align="center" sort="auto(type)" />
-            <listheader label="cost" align="center" sort="auto(cost)" />
-        </listhead>
-        <template name="model" var="coche">
-            <listitem>
-                <listcell />
-                <listcell label="@load(coche.model)"/>
-                <listcell label="@load(coche.make)"/>
-                <listcell label="@load(coche.country)"/>
-                <listcell label="@load(coche.type)"/>
-                <listcell label="@load(coche.cost)"/>
-            </listitem>
-        </template>
-    </listbox>
+        <listbox model="@load(vm.listadoCoches)" selectedItem="@bind(vm.selectedCar)"
+                 mold="paging" pageSize="9">
+            <listhead>
+                <listheader label="Model"/>
+                <listheader label="Make"/>
+                <listheader label="Price" width="20%"/>
+            </listhead>
+            <template name="model" var="coche">
+                <listitem>
+                    <listcell label="@bind(coche.model)"></listcell>
+                    <listcell label="@bind(coche.make)"></listcell>
+                    <listcell>$
+                        <label value="@bind(coche.price)"/>
+                    </listcell>
+                </listitem>
+            </template>
+        </listbox>
+
+        <label value="@load(vm.selectedCar.model)"/>
+        <label value="@load(vm.selectedCar.description)"/>
+    </vlayout>
 </window>

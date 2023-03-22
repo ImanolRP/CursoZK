@@ -13,6 +13,7 @@ public class CarListVM {
 
     private String prueba = "Hola mundo";
     private List<CarDTO> listadoCoches = new ArrayList<>();
+    private CarDTO selectedCar;
 
     private CarService carServiceImpl = new CarServiceImpl();
 
@@ -27,5 +28,13 @@ public class CarListVM {
 
     public String getPrueba() {
         return prueba;
+    }
+
+    public CarDTO getSelectedCar() {
+        return selectedCar;
+    }
+
+    public void setSelectedCar(CarDTO selectedCar) {
+        this.selectedCar = selectedCar;
     }
 }

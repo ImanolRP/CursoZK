@@ -2,11 +2,16 @@
     <window apply="org.zkoss.bind.BindComposer"
             viewModel="@id('vm') @init('org.example.application.vm.myviewmodel.MyViewModel')"
             validationMessages="@id('vmsgs')">
-        <hlayout>count:
-            <label value="@load(vm.count)"/>
-        </hlayout>
-        <button label="sumaUno" onClick="@command('sumaUno')"/>
-        <button label="sumaUnisimo" onClick="@command('sumaUnisimo')"/>
-        <button label="masUno" onClick="@command('masUno')"/>
+        <vlayout>
+            <hlayout>
+                count:
+                <label value="@load(vm.count)"/>
+            </hlayout>
+            <hlayout>
+                <button label="sumaUno" onClick="@command('sumaUno')"/>
+                <button label="sumaUnisimo" onClick="@command('sumaUnisimo')"/>
+                <button label="masUno" onClick="@command('masUno')"/>
+            </hlayout>
+        </vlayout>
     </window>
 </zk>
