@@ -5,6 +5,9 @@
         <label value="@load(vm.prueba)"/>
         <include src="/index.zul"/>
 
+        <textbox value="@bind(vm.pruebaEvento)"
+                 onChange="@command('onChangePruebaEvento')"/>
+
         <button label="Editar Coche" onClick="@command('editarCoche')"/>
 
         <listbox model="@load(vm.listadoCoches)" selectedItem="@bind(vm.selectedCar)"

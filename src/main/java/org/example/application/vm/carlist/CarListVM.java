@@ -7,11 +7,15 @@ import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;
 import org.zkoss.zk.ui.Executions;
+import org.zkoss.zul.Messagebox;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import lombok.Getter;
+import lombok.Setter;
 
 public class CarListVM {
 
@@ -19,12 +23,22 @@ public class CarListVM {
     private List<CarDTO> listadoCoches = new ArrayList<>();
     private CarDTO selectedCar;
 
+    @Getter
+    @Setter
+    private String pruebaEvento;
+
     private CarService carServiceImpl = new CarServiceImpl();
 
     @Init
     public void initCarListVM(){
         listadoCoches = carServiceImpl.findAll();
         selectedCar = listadoCoches.get(0);
+    }
+
+    @Command("onChangePruebaEvento")
+    public void onChangePruebaEvento() {
+      int i = 0;
+      Messagebox.show(pruebaEvento);
     }
 
     @Command("editarCoche")
