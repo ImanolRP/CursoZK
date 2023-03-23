@@ -18,6 +18,8 @@ import java.util.Map;
 import lombok.Getter;
 import lombok.Setter;
 
+@Getter
+@Setter
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
 public class CarListVM {
 
@@ -25,8 +27,6 @@ public class CarListVM {
     private List<CarDTO> listadoCoches = new ArrayList<>();
     private CarDTO selectedCar;
 
-    @Getter
-    @Setter
     private String pruebaEvento;
 
     @WireVariable

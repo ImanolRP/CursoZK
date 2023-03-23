@@ -1,28 +1,39 @@
 <window id="carDetail" mode="modal" title="detalle coche" closable="true"
-        apply="org.zkoss.bind.BindComposer"
-        viewModel="@id('vm') @init('org.example.application.vm.carlist.CarDetailVM')">
-    <vlayout>
+        apply="org.zkoss.bind.BindComposer" width="80%"
+        viewModel="@id('vm') @init('org.example.application.vm.carlist.CarDetailVM')"
+        validationMessages="@id('vmsgs')">
+    <vlayout form="@id('formulario')
+                    @load(vm.coche)
+                    @save(vm.coche, before='guardarCoche')
+                    @validator('org.example.application.vm.carlist.CarDetailValidator', listadoMarcas=vm.marcas)"
+    >
         <hlayout>
             <label value="@load(vm.modo)"/>
         </hlayout>
         <hlayout>
             <label value="Modelo: "/>
             <textbox disabled="@load(vm.modo eq 'detalle')"
-                     value="@bind(vm.coche.model)"/>
+                     value="@bind(formulario.model)"/>
         </hlayout>
         <hlayout>
             <label value="Fabricante: "/>
             <textbox disabled="@load(vm.modo eq 'detalle')"
-                     value="@bind(vm.coche.make)"/>
+                     value="@bind(formulario.make)"/>
+            <label class="error"
+                   value="@load(vmsgs['make'])"/>
         </hlayout>
         <hlayout>
             <label value="Precio: "/>
             <intbox disabled="@load(vm.modo eq 'detalle')"
-                    value="@bind(vm.coche.price)"/>
+                    value="@bind(formulario.price)"/>
+        </hlayout>
+        <hlayout>
+            <label value="Descripcion: "/>
+            <label value="@bind(vm.coche.description)"/>
         </hlayout>
         <hlayout>
             <button visible="@load(vm.modo ne 'detalle')" label="guardar"
-                    onClick="@command('submit')"/>
+                    onClick="@command('guardarCoche')"/>
             <button label="cerrar" onClick="carDetail.detach()"/>
         </hlayout>
     </vlayout>

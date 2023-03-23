@@ -1,6 +1,6 @@
 <window apply="org.zkoss.bind.BindComposer"
         viewModel="@id('vm') @init('org.example.application.vm.carlist.CarListVM')"
-        validationMessages="@id('vmsgs')">
+        >
     <vlayout>
         <label value="@load(vm.prueba)"/>
         <include src="/index.zul"/>

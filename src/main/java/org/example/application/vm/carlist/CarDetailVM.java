@@ -7,6 +7,8 @@ import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.select.annotation.VariableResolver;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
 
+import java.util.List;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,6 +20,8 @@ public class CarDetailVM {
   private String modo;
   private CarDTO coche;
 
+  List<String> marcas;
+
   @WireVariable
   private CarService carServiceImpl;
 
@@ -26,9 +30,10 @@ public class CarDetailVM {
       @ExecutionArgParam("cocheSeleccionado") CarDTO cocheSeleccionado) {
     this.modo = modo;
     this.coche = cocheSeleccionado;
+    marcas = carServiceImpl.getMarcas();
   }
 
-  @Command("submit")
+  @Command("guardarCoche")
   public void submit(@ContextParam(ContextType.VIEW) Component popup) {
     carServiceImpl.editar(coche);
     popup.detach();

@@ -67,6 +67,12 @@ public class CarServiceImpl implements CarService {
           .collect(Collectors.toList());
     }
 
+    @Override
+    public List<String> getMarcas() {
+      return carList.stream().map(cocheBucle -> cocheBucle.getMake()).distinct()
+          .collect(Collectors.toList());
+    }
+
     private static CarDTO isMismoCoche(CarDTO cocheModificado,
         CarDTO cocheBucle) {
       if (cocheBucle.getId() == cocheModificado.getId()) {

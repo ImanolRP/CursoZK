@@ -14,4 +14,6 @@ public interface CarService {
 
     public void editar(CarDTO coche);
 
+    List<String> getMarcas();
+
 }
