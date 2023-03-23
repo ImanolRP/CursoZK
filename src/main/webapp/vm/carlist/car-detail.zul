@@ -2,10 +2,28 @@
         apply="org.zkoss.bind.BindComposer"
         viewModel="@id('vm') @init('org.example.application.vm.carlist.CarDetailVM')">
     <vlayout>
-        <label value="@load(vm.modo)"/>
-        <label value="@load(vm.coche.model)"/>
-        <label value="@load(vm.coche.make)"/>
-        <label value="@load(vm.coche.price)"/>
-        <button label="cerrar" onClick="carDetail.detach()"/>
+        <hlayout>
+            <label value="@load(vm.modo)"/>
+        </hlayout>
+        <hlayout>
+            <label value="Modelo: "/>
+            <textbox disabled="@load(vm.modo eq 'detalle')"
+                     value="@bind(vm.coche.model)"/>
+        </hlayout>
+        <hlayout>
+            <label value="Fabricante: "/>
+            <textbox disabled="@load(vm.modo eq 'detalle')"
+                     value="@bind(vm.coche.make)"/>
+        </hlayout>
+        <hlayout>
+            <label value="Precio: "/>
+            <intbox disabled="@load(vm.modo eq 'detalle')"
+                    value="@bind(vm.coche.price)"/>
+        </hlayout>
+        <hlayout>
+            <button visible="@load(vm.modo ne 'detalle')" label="guardar"
+                    onClick="@command('submit')"/>
+            <button label="cerrar" onClick="carDetail.detach()"/>
+        </hlayout>
     </vlayout>
 </window>

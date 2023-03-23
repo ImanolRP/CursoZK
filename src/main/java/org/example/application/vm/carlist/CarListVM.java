@@ -2,11 +2,12 @@ package org.example.application.vm.carlist;
 
 import org.example.dto.CarDTO;
 import org.example.service.carlist.CarService;
-import org.example.service.carlist.CarServiceImpl;
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;
 import org.zkoss.zk.ui.Executions;
+import org.zkoss.zk.ui.select.annotation.VariableResolver;
+import org.zkoss.zk.ui.select.annotation.WireVariable;
 import org.zkoss.zul.Messagebox;
 
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ import java.util.Map;
 import lombok.Getter;
 import lombok.Setter;
 
+@VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
 public class CarListVM {
 
     private String prueba = "Hola mundo";
@@ -27,7 +29,8 @@ public class CarListVM {
     @Setter
     private String pruebaEvento;
 
-    private CarService carServiceImpl = new CarServiceImpl();
+    @WireVariable
+    private CarService carServiceImpl;
 
     @Init
     public void initCarListVM(){

@@ -12,4 +12,6 @@ public interface CarService {
 	 */
 	public List<CarDTO> findAll();
 
+    public void editar(CarDTO coche);
+
 }

@@ -1,10 +1,13 @@
 package org.example.service.carlist;
 
 import org.example.dto.CarDTO;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
+@Service
 public class CarServiceImpl implements CarService {
 
   private List<CarDTO> carList = new ArrayList<CarDTO>(20);
@@ -56,5 +59,21 @@ public class CarServiceImpl implements CarService {
 	public List<CarDTO> findAll() {
       return carList;
 	}
+
+    @Override
+    public void editar(CarDTO cocheModificado) {
+      carList = carList.stream()
+          .map(cocheBucle -> isMismoCoche(cocheModificado, cocheBucle))
+          .collect(Collectors.toList());
+    }
+
+    private static CarDTO isMismoCoche(CarDTO cocheModificado,
+        CarDTO cocheBucle) {
+      if (cocheBucle.getId() == cocheModificado.getId()) {
+        return cocheModificado;
+      } else {
+        return cocheBucle;
+      }
+    }
 
 }
